@@ -1,8 +1,7 @@
 <?php
-$url = $_GET['url'];
+    session_start();
 
-echo $url;
+    require('libs/controller.php');
+    require('libs/bootstrap.php');
 
-require_once ('controllers/'.$url.'.php');
-
-$controller = new $url;
+    $app = new Bootstrap();
