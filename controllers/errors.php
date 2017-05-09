@@ -3,7 +3,8 @@
 Class Errors extends Controller {
     function __construct()
     {
-        echo 'Error page';
+        parent::__construct();
+        $this->view->render('errors');
     }
 
 }
