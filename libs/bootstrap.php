@@ -28,7 +28,7 @@ Class Bootstrap{
                         $controller->{$url[1]}();
                     }
                 }
-                else{
+                else{ //Refresh page
                     $this->sendError('Action '.$url[1].' was not found');
                 }
             }
