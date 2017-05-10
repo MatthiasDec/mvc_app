@@ -28,19 +28,23 @@ Class Bootstrap{
                         $controller->{$url[1]}();
                     }
                 }
-                else{ //Refresh page
+                else{
                     $this->sendError('Action '.$url[1].' was not found');
+                    return false;
                 }
             }
+            $controller->renderPage();
         }
         else{
             $this->sendError('The page you are looking for does not exist');
+            return false;
         }
     }
 
     function sendError($message){
         require('controllers/errors.php');
         $errors = new Errors();
-        $errors->render($message);
+        $errors->view->message = $message;
+        $errors->renderPage();
     }
 }

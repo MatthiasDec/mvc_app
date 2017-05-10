@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8">
     <title>Header</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="<?php echo ROOTPATH; ?>public/css/default.css">
 </head>
     <body>

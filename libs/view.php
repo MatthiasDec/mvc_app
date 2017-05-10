@@ -7,7 +7,14 @@ Class View{
 
     }
 
-    public function render($viewName){
-        require('views/'.$viewName.'.php');
+    public function render($viewName, $include = true){
+        if($include){
+            require('views/header.php');
+            require('views/'.$viewName.'.php');
+            require('views/footer.php');
+        }
+        else{
+            require('views/'.$viewName.'.php');
+        }
     }
 }

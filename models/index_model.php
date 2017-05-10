@@ -1,6 +1,6 @@
 <?php
 
-Class Index_model{
+Class Index_model extends Model {
 
     function __construct()
     {
