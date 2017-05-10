@@ -4,9 +4,14 @@ Class Bootstrap{
 
     function __construct()
     {
-        $url = $_GET['url'];
-        $url = trim($url,'/');
-        $url = explode('/', $url);
+        if(isset($_GET['url'])){
+            $url = $_GET['url'];
+            $url = trim($url,'/');
+            $url = explode('/', $url);
+        }
+        else{
+            $url[0] = 'index';
+        }
 
         $filePath = 'controllers/'.$url[0].'.php';
 
@@ -14,17 +19,28 @@ Class Bootstrap{
             require($filePath);
             $controller = new $url[0];
 
-            if(isset($url[2])){
-                $controller->{$url[1]}($url[2]);
-            }
-            elseif(isset($url[1])){
-                $controller->{$url[1]}();
+            if(isset($url[1])){
+                if(method_exists($controller, $url[1])){
+                    if(isset($url[2])){
+                        $controller->{$url[1]}($url[2]);
+                    }
+                    else{
+                        $controller->{$url[1]}();
+                    }
+                }
+                else{
+                    $this->sendError('Action '.$url[1].' was not found');
+                }
             }
         }
         else{
-            require('controllers/errors.php');
-            $controller = new Errors();
+            $this->sendError('The page you are looking for does not exist');
         }
     }
 
+    function sendError($message){
+        require('controllers/errors.php');
+        $errors = new Errors();
+        $errors->render($message);
+    }
 }

@@ -6,5 +6,4 @@ Class Controller{
     {
         $this->view = new View();
     }
-
 }
