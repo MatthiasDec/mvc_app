@@ -11,4 +11,13 @@ Class Controller{
         $className = strtolower(get_class($this));
         $this->view->render($className);
     }
+
+    function loadModel($name){
+        $path = 'models/'.$name.'_model.php';
+        if(file_exists($path)){
+            require($path);
+            $modelName = $name.'_model';
+            $this->model = new $modelName();
+        }
+    }
 }
