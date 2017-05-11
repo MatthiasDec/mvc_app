@@ -24,9 +24,11 @@ Class Bootstrap{
                 if(method_exists($controller, $url[1])){
                     if(isset($url[2])){
                         $controller->{$url[1]}($url[2]);
+                        return false;
                     }
                     else{
                         $controller->{$url[1]}();
+                        return false;
                     }
                 }
                 else{

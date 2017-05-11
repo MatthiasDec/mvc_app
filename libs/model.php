@@ -6,5 +6,4 @@ Class Model{
     {
         $this->db = new Database();
     }
-
 }
