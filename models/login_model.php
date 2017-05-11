@@ -8,8 +8,16 @@ Class Login_model extends Model{
     }
 
     function connect(){
+
+        //Inside model or controller ?
         $stmt = $this->db->prepare("SELECT * FROM UTILISATEUR WHERE EMAIL = :email");
-        $stmt->execute(array('email' => $_POST['login']));
+
+        if(isset($_POST['login'])){
+            $stmt->execute(array('email' => $_POST['login']));
+        }
+        else{
+            return false;
+        }
 
         if($stmt->rowCount()>0){
             $fetch = $stmt->fetchAll();

@@ -7,4 +7,7 @@ Class Register extends Controller{
         parent::__construct();
     }
 
+    function addUser(){
+
+    }
 }

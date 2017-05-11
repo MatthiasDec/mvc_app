@@ -10,9 +10,11 @@ Class Login extends Controller {
     function connect(){
         if($this->model->connect()){
             header('location:'.ROOTPATH);
+            exit;
         }
         else{
             header('location:'.ROOTPATH.'login/error');
+            exit;
         }
     }
 
