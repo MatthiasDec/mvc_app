@@ -1,6 +1,6 @@
 <?php
 
-$dbhost = 'localhost';
-$dbname = 'EHD';
-$dbuser = 'root';
-$dbpass = 'toor';
+define('DBHOST','localhost');
+define('DBNAME','EHD');
+define('DBUSER','root');
+define('DBPASS','toor');

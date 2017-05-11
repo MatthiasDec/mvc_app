@@ -10,4 +10,5 @@
 
 <p><?php echo isset($this->loginMessage) ? $this->loginMessage : ''; ?></p>
 
-<a href="<?php echo ROOTPATH.'register'; ?>">Register</a>
+<a href="<?php echo ROOTPATH; ?>">Retour</a>
+<a href="<?php echo ROOTPATH.'register'; ?>">S'enregistrer</a>
