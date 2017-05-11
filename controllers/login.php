@@ -8,6 +8,17 @@ Class Login extends Controller {
     }
 
     function connect(){
-        $this->model->connect();
+        if($this->model->connect()){
+            header('location:'.ROOTPATH);
+        }
+        else{
+            header('location:'.ROOTPATH.'login/error');
+        }
+    }
+
+    function error(){
+        //Change message here
+        $this->view->loginMessage = 'Wrong password or mail';
+        $this->renderPage();
     }
 }

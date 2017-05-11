@@ -7,9 +7,9 @@ Class Controller{
         $this->view = new View();
     }
 
-    function renderPage(){
+    function renderPage($include = true){
         $className = strtolower(get_class($this));
-        $this->view->render($className);
+        $this->view->render($className, $include);
     }
 
     function loadModel($name){

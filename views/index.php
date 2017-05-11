@@ -1,7 +1,9 @@
-
-<h1>Index</h1>
-
-<a href="/EHD/mvc_app/index/test">func</a>
-<a href="/EHD/mvc_app/errors">test</a>
-
-<h2>Test</h2>
+<div id="menu">
+    <a href="<?php echo ROOTPATH; ?>"><img src="<?php echo ROOTPATH.'public/images/logo.png'; ?>" alt="EHD"></a>
+    <a href="#">Nos produits</a>
+    <a href="#">À propos</a>
+    <a href="#">Contact</a>
+    <a href="<?php echo $this->connected ? ROOTPATH.'index/disconnect' : ROOTPATH.'login'; ?>">
+        <?php echo $this->connected ? 'Déconnexion' : 'Connexion'; ?>
+    </a>
+</div>
