@@ -19,8 +19,12 @@ Class Login extends Controller {
     }
 
     function error(){
-        //Change message here
-        $this->view->loginMessage = 'Wrong password or mail';
+        $this->view->loginMessage = 'Adresse mail ou mot de passe incorrect';
+        $this->renderPage();
+    }
+
+    function welcome(){
+        $this->view->loginMessage = 'Inscription complète, veuillez vous connecter';
         $this->renderPage();
     }
 }
